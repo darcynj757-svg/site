@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beauty-bluess-premium.vercel.app/sitemap.xml

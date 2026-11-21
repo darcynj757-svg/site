@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beauty Bluess — врачебная косметология в Томске</title>
+<meta name="description" content="Кабинет врачебной косметологии Beauty Bluess в Томске: контурная пластика губ, биоревитализация, коллагеностимуляция, RF-лифтинг Volnewmer, пилинги. Запись онлайн.">
+<meta property="og:title" content="Beauty Bluess — врачебная косметология в Томске">
+<meta property="og:description" content="Врачи-косметологи с образованием СибГМУ и авторскими техниками. Пр. Фрунзе, 96А.">
+<meta property="og:image" content="assets/img/IMG_8599.webp">
+<meta name="theme-color" content="#2B231F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalClinic","name":"Beauty Bluess","address":{"@type":"PostalAddress","addressLocality":"Томск","streetAddress":"проспект Фрунзе, 96А, кабинет 5","addressCountry":"RU"},"telephone":"+79138890939","url":"https://beauty-bluess-start.vercel.app/","aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","ratingCount":"46"}}
+</script>
+<style>
+/*
+VOICE: спокойная врачебная точность, тёплая и дорогая
+IDEA: золотая линия логотипа ведёт по странице — рисует, подчёркивает, отсчитывает
+PICTURE: портрет команды на эспрессо, раскрывающийся как занавес
+COLOUR and TYPE: linen + espresso, золото только линии; Forum + Manrope
+LAYOUT: одна страница, асимметрия, крупная типографика, бегущая лента результатов
+*/
+:root{
+  --espresso:#2B231F; --espresso-2:#3A302A; --greige:#D8CDC0; --linen:#EFE9E2;
+  --gold:#B08D57; --gold-soft:#CDB48A; --ink-60:#6B5F57; --mist:#B9ADA2;
+  --serif:"Forum", Georgia, serif; --sans:"Manrope", system-ui, sans-serif;
+  --wrap:1240px; --pad:clamp(20px,4vw,48px); --sec:clamp(80px,10vw,140px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --r-btn:14px; --r-card:22px; --r-img:26px;
+}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--linen);color:var(--espresso);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px 12px;z-index:99}
+
+/* header: floating liquid-glass bar */
+.top,.top.glass{position:fixed;top:14px;left:14px;right:14px;max-width:1280px;margin:0 auto;z-index:50;border-radius:20px;transition:transform .6s var(--ease)}
+.top.hide{transform:translateY(calc(-100% - 20px))}
+.top .wrap{display:flex;align-items:center;gap:32px;height:64px;padding:0 10px 0 26px;max-width:none}
+.top .prog{position:absolute;left:22px;right:22px;bottom:0;height:1px;background:var(--gold-soft);transform:scaleX(0);transform-origin:left;border-radius:1px}
+.mark{font-family:var(--serif);letter-spacing:.3em;font-size:1.0625rem;text-decoration:none;white-space:nowrap}
+.top .mark,.top .nav a,.top .tel{color:var(--linen)}
+.nav{display:flex;gap:26px;margin-left:auto;font-size:.9375rem}
+.nav a{text-decoration:none;opacity:.78;transition:opacity .2s;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--gold-soft);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav a:hover{opacity:1}.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.top .tel{font-weight:600;text-decoration:none;font-size:.9375rem;white-space:nowrap}
+
+/* liquid glass material */
+.glass{position:relative;isolation:isolate;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05) 45%,rgba(255,255,255,.09));
+  -webkit-backdrop-filter:blur(22px) saturate(165%) brightness(1.05);backdrop-filter:blur(22px) saturate(165%) brightness(1.05);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(255,255,255,.12),inset 1px 0 0 rgba(255,255,255,.18),inset -1px 0 0 rgba(255,255,255,.08),0 24px 60px rgba(20,14,11,.28)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;z-index:-1;pointer-events:none;
+  background:linear-gradient(140deg,rgba(255,255,255,.7),rgba(255,255,255,.08) 30%,rgba(205,180,138,.35) 60%,rgba(255,255,255,.4));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:radial-gradient(320px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.22),transparent 60%)}
+.top.glass{background:linear-gradient(135deg,rgba(43,35,31,.5),rgba(43,35,31,.32))}
+.lg .glass{-webkit-backdrop-filter:url(#liquid) blur(20px) saturate(165%);backdrop-filter:url(#liquid) blur(20px) saturate(165%)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 30px;border-radius:var(--r-btn);font:600 .9375rem var(--sans);text-decoration:none;position:relative;overflow:hidden;isolation:isolate;white-space:nowrap;transition:color .45s var(--ease),border-color .45s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .5s var(--ease)}
+.btn:hover::before{transform:none}
+.btn-main{background:var(--espresso);color:var(--linen)}
+.btn-main::before{background:var(--gold)}
+.btn-ghost{border:1px solid var(--espresso);color:var(--espresso)}
+.btn-ghost::before{background:var(--espresso)}
+.btn-ghost:hover{color:var(--linen)}
+.dark .btn-main{background:var(--linen);color:var(--espresso)}
+.dark .btn-main:hover{color:var(--espresso)}
+.dark .btn-ghost{border-color:rgba(239,233,226,.5);color:var(--linen)}
+.dark .btn-ghost::before{background:var(--linen)}
+.dark .btn-ghost:hover{color:var(--espresso)}
+.top .btn{height:46px;padding:0 22px;border-radius:12px}
+
+/* hero: adaptive — side-by-side on wide screens, stacked photo + glass on tablets/phones */
+section.hero{position:relative;min-height:100svh;padding:0;background:radial-gradient(120% 90% at 70% 40%,#3b2f29 0%,#2b221d 55%,#211915 100%);overflow:hidden;color:var(--linen)}
+.hero .bg{position:absolute;inset:0}
+section.hero{--hw:min(100vw,max(1560px,165svh));--hx:calc((100vw - var(--hw)) / 2)}
+.hero .bg img{position:absolute;right:max(2vw,var(--hx));top:0;height:100%;width:auto;max-width:none;object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 94%,transparent 100%)}
+.hero .glow{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
+.hero .g1{width:46vw;height:46vw;left:-10vw;top:10vh;background:radial-gradient(circle,rgba(205,180,138,.45),transparent 65%)}
+.hero .g2{width:30vw;height:30vw;left:18vw;bottom:-12vh;background:radial-gradient(circle,rgba(176,141,87,.35),transparent 65%)}
+.hero .veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,14,11,.35) 0%,transparent 22%,transparent 70%,rgba(20,14,11,.45) 100%)}
+.hero .wrap{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:96px;padding-bottom:48px;max-width:var(--hw);padding-left:var(--hpl);padding-right:clamp(24px,4vw,64px)}
+section.hero{--hpl:clamp(24px,9vw,170px)}
+/* panel never reaches the people: photo width = 0.75 × screen height */
+.panel{width:clamp(400px,calc(var(--hw) - 75svh - 2*clamp(24px,4vw,64px) - 2vw - 40px),600px);padding:clamp(28px,3vw,48px);border-radius:36px}
+/* panel variants: A (default) classic liquid glass; B frameless; C gold hairline; D tinted */
+.panel.pv-b::before{display:none}
+.panel.pv-b{box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 40px 100px rgba(10,6,4,.45)}
+.panel.pv-c::before{background:linear-gradient(160deg,rgba(205,180,138,.9),rgba(205,180,138,.35) 50%,rgba(205,180,138,.7))}
+.panel.pv-c{box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 30px 80px rgba(10,6,4,.35)}
+.panel.pv-d{background:linear-gradient(160deg,rgba(43,35,31,.72),rgba(43,35,31,.5))}
+.panel.pv-d::before{display:none}
+.panel.pv-d{box-shadow:inset 0 1px 0 rgba(205,180,138,.55),0 30px 80px rgba(10,6,4,.35)}
+.hero h1{font:400 clamp(2.5rem,4.6vw,4.5rem)/1.02 var(--serif);letter-spacing:-.01em;color:#fff}
+.hero .lead{margin-top:22px;font-size:1.0625rem;color:rgba(239,233,226,.82);max-width:30em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .btn-main{background:var(--linen);color:var(--espresso)}
+.hero .btn-main:hover{color:var(--espresso)}
+.hero .btn-ghost{border-color:rgba(239,233,226,.45);color:var(--linen)}
+.hero .btn-ghost::before{background:var(--linen)}.hero .btn-ghost:hover{color:var(--espresso)}
+.rating{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:22px;position:relative;font-size:.875rem;color:rgba(239,233,226,.7)}
+.rating::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:rgba(239,233,226,.22);transform-origin:left;transform:scaleX(var(--s,1))}
+.rating b{font:400 2.25rem/1 var(--serif);color:var(--gold-soft);font-variant-numeric:tabular-nums}
+.hero .cue{position:absolute;left:50%;bottom:26px;translate:-50% 0;width:1px;height:56px;background:linear-gradient(rgba(205,180,138,0),rgba(205,180,138,.9));overflow:hidden}
+.hero .cue::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:#fff;animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{to{top:110%}}
+.addr-chip{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.8125rem;color:rgba(239,233,226,.72);text-decoration:none}
+.addr-chip svg{flex:none}
+
+/* stacked layout: tablets, portrait screens, phones */
+@media (max-width:1100px),(max-aspect-ratio:5/4){
+  section.hero{min-height:0}
+  .hero .bg{position:relative;inset:auto;height:min(78svh,calc(100vw * 0.9));min-height:360px}
+  .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 78%;
+    -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,transparent 100%)}
+  .hero .glow,.hero .cue{display:none}
+  .hero .veil{background:linear-gradient(180deg,rgba(20,14,11,.4) 0%,transparent 20%)}
+  .hero .wrap{min-height:0;display:block;margin-top:clamp(-120px,-12vw,-56px);padding-top:0;padding-bottom:clamp(40px,7vw,72px)}
+  .panel{width:100%;max-width:720px;margin:0 auto;border-radius:28px}
+}
+@media (max-width:1100px) and (min-aspect-ratio:5/4){
+  .hero .bg{height:72svh}
+  .hero .bg img{object-position:50% 60%}
+}
+
+
+/* bare hero text (no glass block) */
+.panel.bare{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0;border-radius:0;width:clamp(400px,calc(var(--hw) - 75svh - var(--hpl) - clamp(24px,4vw,64px) - 2vw),680px);position:relative;isolation:isolate}
+.panel.bare::before,.panel.bare::after{display:none}
+.panel.bare .accent{display:block;width:72px;height:1px;background:var(--gold-soft);margin-bottom:34px;transform-origin:left}
+.panel.bare::after{content:"";display:block;position:absolute;inset:-18% -30% -18% -40%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(20,14,11,.55),transparent)}
+.panel.bare h1{font-size:clamp(2.8rem,4.8vw,4.6rem);line-height:1;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.panel.bare .lead{font-size:1.125rem;max-width:27em;color:rgba(239,233,226,.8)}
+.panel.bare .actions{margin-top:40px}
+.panel.bare .rating{max-width:30em}
+@media (max-width:1100px),(max-aspect-ratio:5/4){
+  .panel.bare{width:100%;max-width:720px;padding:0 4px}
+  section.hero{--hpl:clamp(24px,4vw,64px)}
+  .panel.bare .accent{margin-bottom:22px}
+  .panel.bare::after{inset:-30% -20% -10% -20%}
+}
+@media (max-width:640px){.panel.bare{padding:0}.panel.bare h1{font-size:2.5rem}.hero .wrap{margin-top:-90px}}
+
+
+/* large desktop: bigger team photo */
+@media (min-width:1400px) and (min-aspect-ratio:5/4){
+  .hero .bg img{height:116%;top:auto;bottom:0}
+  .panel.bare{width:clamp(420px,calc(var(--hw) - 87svh - var(--hpl) - clamp(24px,4vw,64px) - 2vw),640px)}
+}
+
+/* split text masks */
+.ln{display:block;overflow:clip;padding-bottom:.06em;margin-bottom:-.06em}
+
+/* manifesto */
+.mani{background:var(--linen);color:var(--espresso);padding:var(--sec) 0}
+.mani p.big{font:400 clamp(1.9rem,4.2vw,3.5rem)/1.18 var(--serif);max-width:20em;text-wrap:pretty}
+.mani .w{opacity:.16;transition:none}
+.mani .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(56px,8vw,96px);border-top:1px solid var(--greige)}
+.mani .fact{padding:32px 32px 0 0}
+.mani .fact+.fact{padding-left:32px;border-left:1px solid var(--greige)}
+.mani .num{font:400 clamp(3rem,6vw,4.5rem)/1 var(--serif);color:var(--gold);font-variant-numeric:tabular-nums}
+.mani .fact p{margin-top:12px;color:var(--ink-60);max-width:22em}
+
+/* sections */
+section{padding:var(--sec) 0}
+.h2{font:400 clamp(2.25rem,4.4vw,3.5rem)/1.05 var(--serif);text-wrap:balance}
+.sub{margin-top:16px;color:var(--ink-60);max-width:38em}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px;flex-wrap:wrap}
+
+/* prices */
+.price-list{position:relative}
+.price-list .rule{height:1px;background:var(--greige);transform-origin:left}
+.svc{border-bottom:1px solid var(--greige)}
+.svc button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto 36px;align-items:center;gap:24px;padding:28px 0;cursor:pointer}
+.svc button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.svc h3{font:400 clamp(1.375rem,2.2vw,1.75rem)/1.2 var(--serif);transition:transform .5s var(--ease),color .3s}
+.svc button:hover h3{transform:translateX(10px);color:var(--gold)}
+.svc .lead2{display:block;font:400 .9375rem/1.5 var(--sans);color:var(--ink-60);margin-top:6px}
+.svc .from{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.svc .plus{width:36px;height:36px;position:relative;flex:none;border:1px solid var(--greige);border-radius:50%;transition:background .3s,border-color .3s}
+.svc .plus::before,.svc .plus::after{content:"";position:absolute;left:11px;right:11px;top:17px;height:1px;background:var(--espresso);transition:transform .45s var(--ease)}
+.svc .plus::after{transform:rotate(90deg)}
+.svc.open .plus{background:var(--espresso);border-color:var(--espresso)}
+.svc.open .plus::before,.svc.open .plus::after{background:var(--linen)}
+.svc.open .plus::after{transform:rotate(0)}
+.svc .body{height:0;overflow:hidden}
+.rows{list-style:none;padding:0 0 32px;max-width:780px}
+.rows li{display:flex;align-items:baseline;gap:12px;padding:9px 0;font-size:.9375rem}
+.rows li::after{content:"";order:2;flex:1;border-bottom:1px dotted var(--mist);transform:translateY(-4px)}
+.rows span{order:1}.rows b{order:3;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.shop{margin-top:48px;padding:32px;border:1px solid var(--greige);border-radius:var(--r-card);background:rgba(255,255,255,.35)}
+.shop p{color:var(--ink-60);max-width:44em}
+.shop strong{font:400 1.375rem var(--serif);display:block;color:var(--espresso);margin-bottom:6px}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.5vw,32px)}
+.doc{display:flex;flex-direction:column}
+.doc .ph{border-radius:999px 999px var(--r-card) var(--r-card);overflow:hidden;background:var(--espresso);aspect-ratio:3/4;position:relative}
+.doc .ph img{position:absolute;left:var(--l,0);top:var(--y,-6%);width:var(--w,100%);height:var(--hh,112%);object-fit:cover;object-position:50% 18%;transition:scale 1.2s var(--ease)}
+.doc:hover .ph img{scale:1.05}
+.doc h3{font:400 1.5rem/1.2 var(--serif);margin-top:22px}
+.doc .role{font-size:.875rem;color:var(--ink-60);margin-top:4px}
+.doc ul{list-style:none;margin:16px 0 8px;font-size:.875rem;border-top:1px solid var(--greige)}
+.doc li{padding:8px 0;border-bottom:1px solid var(--greige)}
+.doc li.sig{color:var(--gold)}
+.doc .ph{display:block;text-decoration:none;color:#fff}
+.doc .ph.shrink{background:radial-gradient(120% 90% at 50% 35%,#352f2e 0%,#2a2423 55%,#1f1a1a 100%)}
+.doc .ph.shrink img{-webkit-mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 80%,transparent);-webkit-mask-composite:source-in;
+  mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 8%,#000 80%,transparent);mask-composite:intersect}
+.book{position:absolute;left:12px;right:12px;bottom:12px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 8px 0 16px;font-weight:600;font-size:.8125rem;color:#fff;z-index:2;white-space:nowrap;
+  transition:transform .6s var(--ease)}
+.book .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.16);transition:background .45s var(--ease),width .6s var(--ease)}
+.book .ic svg{transition:transform .6s var(--ease)}
+.doc .ph:hover .book{transform:translateY(-4px)}
+.doc .ph:hover .book .ic{background:var(--gold);width:52px}
+.doc .ph:hover .book .ic svg{transform:rotate(-8deg) scale(1.08)}
+.doc .ph::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(20,14,11,.55));pointer-events:none;z-index:1}
+.doc ul{margin-bottom:0}
+.book .lbl{overflow:hidden;text-overflow:ellipsis}
+@media (max-width:1240px){.book .nm{display:none}}
+@media (max-width:1100px){.nav{display:none}.top .tel{margin-left:auto}}
+@media (max-width:640px){.book{left:8px;right:8px;bottom:8px;height:44px;border-radius:13px;padding:0 5px 0 12px;font-size:.75rem}.book .ic{width:32px;height:32px;border-radius:9px}}
+
+/* works: before/after carousel */
+.works{background:var(--espresso);color:var(--linen);overflow:hidden}
+.works .sub{color:var(--mist)}
+.works .head{margin-bottom:40px}
+.ctrl{display:flex;align-items:center;gap:14px}
+.ctrl .cnt{font-variant-numeric:tabular-nums;font-size:.875rem;color:var(--mist);min-width:4.5em;text-align:right}
+.ctrl button{width:52px;height:52px;border-radius:16px;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;transition:background .3s,opacity .3s}
+.ctrl button:hover{background:rgba(205,180,138,.35)}
+.ctrl button:disabled{opacity:.35;cursor:default}
+.car{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;
+  padding:6px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad))) 30px;scroll-padding-inline:max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)))}
+.car::-webkit-scrollbar{display:none}
+.car.drag{cursor:grabbing;scroll-snap-type:none}
+.car.drag *{pointer-events:none}
+.bac{margin:0;flex:none;width:clamp(250px,24vw,330px);scroll-snap-align:start}
+.bimg{position:relative;aspect-ratio:4/5;border-radius:var(--r-img);overflow:hidden;background:var(--espresso-2);--p:100%;box-shadow:0 24px 60px rgba(0,0,0,.35);user-select:none;-webkit-user-select:none}
+.bimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.bimg .af{clip-path:inset(0 0 0 var(--p))}
+.bimg .sweep{position:absolute;top:0;bottom:0;left:var(--p);width:1px;background:linear-gradient(transparent,var(--gold-soft) 20%,var(--gold-soft) 80%,transparent);box-shadow:0 0 16px rgba(205,180,138,.8)}
+.bimg .knob{position:absolute;top:50%;left:var(--p);width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:14px}
+.bimg .tg{position:absolute;top:14px;height:28px;padding:0 11px;border-radius:999px;display:inline-flex;align-items:center;font-size:.75rem;color:#fff}
+.bimg .tg.l{left:14px}.bimg .tg.r{right:14px}
+.bac figcaption{margin-top:16px;padding:0 4px}
+.bac figcaption b{display:block;font:400 1.3125rem/1.2 var(--serif)}
+.bac figcaption span{display:block;margin-top:4px;font-size:.8125rem;color:var(--mist)}
+.bar{position:relative;height:1px;background:rgba(205,180,138,.2);margin-top:8px}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--gold-soft);transform-origin:left;transform:scaleX(var(--prog,.1))}
+.works .note{margin-top:28px;font-size:.8125rem;color:var(--mist)}
+
+/* final cta */
+.final{background:var(--espresso);color:var(--linen);text-align:left}
+.final .big{font:400 clamp(2.75rem,8vw,7rem)/.98 var(--serif);letter-spacing:-.015em}
+.final .big .gold{color:var(--gold-soft)}
+.final .row{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-top:48px}
+.final p{color:var(--mist);max-width:28em}
+.final .actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* contacts */
+.contacts .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(32px,5vw,64px);align-items:stretch}
+.contacts dl{margin-top:32px}
+.contacts dt{font-size:.8125rem;color:var(--ink-60);margin-top:20px}
+.contacts dd{font:400 1.375rem/1.35 var(--serif);margin-top:2px}
+.contacts dd a{text-decoration:none;border-bottom:1px solid var(--gold)}
+.contacts .actions{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+.map{position:relative;align-self:center;border-radius:26px}
+.map-img{position:relative;display:block;aspect-ratio:1274/774;border-radius:26px;box-shadow:0 1px 0 rgba(255,255,255,.9);overflow:hidden;background:#f2f1ed}
+.map-img img{display:block;width:100%;height:100%;object-fit:cover;image-rendering:auto}
+.map-img::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 10px 22px -6px rgba(30,20,15,.35),inset 0 -6px 16px -8px rgba(30,20,15,.2),inset 8px 0 16px -10px rgba(30,20,15,.22),inset -8px 0 16px -10px rgba(30,20,15,.22),inset 0 0 0 1px rgba(30,20,15,.10)}
+.map .card{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;border-radius:20px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#fff;background:linear-gradient(135deg,rgba(43,35,31,.72),rgba(43,35,31,.55))}
+.map .card b{display:block;font:400 1.25rem/1.25 var(--serif)}
+.map .card span{font-size:.8125rem;color:rgba(239,233,226,.75)}
+.map .card a{height:44px;padding:0 18px;border-radius:12px;background:var(--linen);color:var(--espresso);font-weight:600;font-size:.875rem;display:inline-flex;align-items:center;text-decoration:none}
+
+
+/* footer */
+footer{background:var(--espresso);color:var(--mist);padding:48px 0 calc(48px + env(safe-area-inset-bottom));font-size:.875rem;border-top:1px solid rgba(205,180,138,.2)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+footer .mark{color:var(--linen)}
+footer .disc{font-family:var(--serif);font-size:1.25rem;color:var(--gold-soft);max-width:32em;line-height:1.3}
+
+.mcta{display:none}
+
+/* motion start states (only when JS + motion allowed) */
+.js .hero h1,.js [data-fade],.js .panel{visibility:hidden}
+
+@media (max-width:960px){
+  .nav{display:none}
+  .contacts .wrap{grid-template-columns:1fr}
+
+  .mani .facts{grid-template-columns:1fr}
+  .mani .fact,.mani .fact+.fact{padding:28px 0;border-left:0;border-bottom:1px solid var(--greige)}
+  .nav{display:none}
+  .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .top .tel,.top .btn{display:none}
+  .top .wrap{height:56px;padding-left:20px}
+  .top,.top.glass{top:10px;left:10px;right:10px;border-radius:16px}
+  .panel{padding:24px 22px}
+  .hero h1{font-size:2.15rem}
+  .hero .rating{display:none}
+  .hero .lead{font-size:.9375rem;margin-top:14px}
+  .hero .actions{margin-top:22px}
+  .hero .actions .btn{height:48px;padding:0 20px}
+
+  .rating{margin-top:20px;padding-top:16px}
+  .ba-grid{grid-template-columns:1fr}
+  .ba-col.r{padding-top:0}
+  .ba-col{gap:48px}
+  .svc button{grid-template-columns:minmax(0,1fr) 36px}
+  .svc .from{grid-column:1;grid-row:2;margin-top:-14px;font-size:.9375rem}
+  .mcta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(239,233,226,.82);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);border-top:1px solid rgba(216,205,192,.8);gap:8px}
+  .mcta .btn{flex:1;height:48px;padding:0 12px;border-radius:12px}
+  footer{padding-bottom:100px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .hero h1,.js [data-fade],.js .panel{visibility:visible}.mani .w{opacity:1}}
+@media (max-width:640px){.map .card{position:relative;left:auto;right:auto;bottom:auto;margin-top:12px;background:var(--espresso)}.map{padding:0;border-radius:22px}}
+</style>
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.hero h1,.panel,[data-fade]').forEach(function(e){e.style.visibility='visible'})},2500)</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<header class="top glass" id="top">
+  <div class="wrap">
+    <a class="mark" href="#main" aria-label="Beauty Bluess, наверх">BEAUTY BLUESS</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#prices">Услуги и цены</a>
+      <a href="#team">Врачи</a>
+      <a href="#works">Результаты</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+79138890939">+7 (913) 889-09-39</a>
+    <a class="btn btn-main" href="https://dikidi.net/583429" target="_blank" rel="noopener">Записаться</a>
+  </div>
+  <span class="prog" aria-hidden="true"></span>
+</header>
+
+<div id="smooth-wrapper"><div id="smooth-content">
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+  <div class="bg"><img src="assets/img/IMG_8599.webp" width="1050" height="1400" alt="Команда Beauty Bluess: четыре специалиста в чёрной форме" fetchpriority="high"></div>
+  <span class="glow g1" aria-hidden="true"></span><span class="glow g2" aria-hidden="true"></span>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="panel bare" id="panel"><span class="accent" aria-hidden="true"></span>
+      <h1 id="h1">Врачебная косметология <span style="white-space:nowrap">в Томске</span></h1>
+      <p class="lead" data-fade>Естественный результат без страха и лишних процедур. Врачи с образованием СибГМУ и авторскими техниками подберут то, что нужно именно вашей коже.</p>
+      <div class="actions" data-fade>
+        <a class="btn btn-main" href="https://dikidi.net/583429" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn btn-ghost" href="tel:+79138890939">Позвонить</a>
+      </div>
+      <div class="rating" data-fade><b data-count="5.0">5.0</b><span>46 оценок клиентов<br>в сервисе записи DIKIDI</span></div>
+      <a class="addr-chip" href="#contacts" data-fade><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CDB48A" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Томск, проспект Фрунзе, 96А, кабинет 5</a>
+    </div>
+  </div>
+  <span class="cue" aria-hidden="true"></span>
+</section>
+
+<section class="mani" aria-labelledby="mani-h">
+  <div class="wrap">
+    <h2 id="mani-h" class="skip">Наш подход</h2>
+    <p class="big">Мы не делаем «новое лицо». Мы возвращаем вашему свежесть и чёткость: сначала консультация и честный план, потом процедура у врача, который знает, что делает.</p>
+    <div class="facts">
+      <div class="fact"><div class="num"><span data-count="3">3</span></div><p>врача из четырёх специалистов окончили лечебный факультет СибГМУ</p></div>
+      <div class="fact"><div class="num"><span data-count="4">4</span></div><p>авторские методики: «Premium Lips», «Глобальное омоложение», коррекция носа, лечение акне</p></div>
+      <div class="fact"><div class="num"><span data-count="5.0">5.0</span></div><p>средняя оценка по 46 оценкам в сервисе записи DIKIDI</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices" aria-labelledby="prices-h">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2 id="prices-h" class="h2" data-split>Услуги и цены</h2>
+        <p class="sub" data-fade>Откройте направление, чтобы увидеть полный прайс. Точный план и стоимость врач назовёт на консультации.</p>
+      </div>
+      <a class="btn btn-ghost" href="https://dikidi.net/583429" target="_blank" rel="noopener" data-fade>Выбрать время</a>
+    </div>
+    <div class="price-list">
+      <div class="rule" aria-hidden="true"></div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p0"><h3>Контурная пластика губ<span class="lead2">Объём и форма губ на препаратах гиалуроновой кислоты. Авторская техника «Premium Lips».</span></h3><span class="from">от 10 900 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p0"><ul class="rows">
+            <li><span>Neauvia Intense Lips, 1 мл</span><b>14 000 ₽</b></li>
+            <li><span>Repart Elegance Soft, 1 мл</span><b>10 900 ₽</b></li>
+            <li><span>Bellarti Lips, 1 мл</span><b>11 000 ₽</b></li>
+            <li><span>Belotero Intense, 1 мл</span><b>16 500 ₽</b></li>
+            <li><span>Belotero Intense Lido, 1 мл</span><b>17 000 ₽</b></li>
+            <li><span>Stylage M, 1 мл</span><b>16 000 ₽</b></li>
+            <li><span>Stylage M Lido, 1 мл</span><b>16 500 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p1"><h3>Контурная пластика подбородка, углов челюсти и скул<span class="lead2">Чёткий овал лица и выраженные скулы без операции.</span></h3><span class="from">от 14 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p1"><ul class="rows">
+            <li><span>Repart Elegance Hard, 1 мл</span><b>14 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p2"><h3>Биоревитализация и мезотерапия<span class="lead2">Увлажнение, плотность и сияние кожи изнутри.</span></h3><span class="from">от 6 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p2"><ul class="rows">
+            <li><span>Welle Stretch, 2 мл</span><b>12 000 ₽</b></li>
+            <li><span>Welle Multiactive</span><b>14 000 ₽</b></li>
+            <li><span>Welle Vasis</span><b>14 000 ₽</b></li>
+            <li><span>Welle RX, 2 мл</span><b>21 000 ₽</b></li>
+            <li><span>Welle Gold</span><b>18 000 ₽</b></li>
+            <li><span>Meso Xanthin, 2 мл</span><b>12 000 ₽</b></li>
+            <li><span>Meso Wharton, 2 мл</span><b>13 000 ₽</b></li>
+            <li><span>Meso Eye, 1,5 мл</span><b>12 000 ₽</b></li>
+            <li><span>Jufora Zinc (жидкие нити), 2 мл</span><b>8 000 ₽</b></li>
+            <li><span>IQ Lift, 2 мл</span><b>6 000 ₽</b></li>
+            <li><span>MD Complex DMAE, 2 мл</span><b>8 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p3"><h3>PDRN-терапия<span class="lead2">Препараты полинуклеотидов для восстановления и обновления кожи.</span></h3><span class="from">от 15 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p3"><ul class="rows">
+            <li><span>Plinest, 2 мл</span><b>15 000 ₽</b></li>
+            <li><span>Plinest Fast, 2 мл</span><b>15 000 ₽</b></li>
+            <li><span>Nucleoform, 2 мл</span><b>16 000 ₽</b></li>
+            <li><span>Nucleoform Rich, 2 мл</span><b>17 000 ₽</b></li>
+            <li><span>Bellarti Nucleo, 2 мл</span><b>16 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p4"><h3>Коллагеностимуляция<span class="lead2">Запускает выработку собственного коллагена: кожа плотнее, контуры чётче.</span></h3><span class="from">от 16 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p4"><ul class="rows">
+            <li><span>Agent Col 003 / 004, 4 мл</span><b>16 000 ₽</b></li>
+            <li><span>Collost Micro, 5 мл</span><b>16 000 ₽</b></li>
+            <li><span>Collost Micro на плазме, 5 мл</span><b>18 000 ₽</b></li>
+            <li><span>Nithya, 5 мл</span><b>18 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p5"><h3>Глобальный лифтинг<span class="lead2">Подтяжка и уплотнение кожи без разрезов.</span></h3><span class="from">от 28 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p5"><ul class="rows">
+            <li><span>Volnewmer — монополярный RF-лифтинг, 700 линий</span><b>40 000 ₽</b></li>
+            <li><span>Radiesse, 1,5 мл</span><b>28 000 ₽</b></li>
+            <li><span>Radiesse, 3 мл</span><b>41 000 ₽</b></li>
+            <li><span>Нити Cog Visage</span><b>от 30 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p6"><h3>Плазмотерапия<span class="lead2">Омоложение собственной плазмой крови.</span></h3><span class="from">от 4 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p6"><ul class="rows">
+            <li><span>1 пробирка</span><b>4 000 ₽</b></li>
+            <li><span>2 пробирки</span><b>7 000 ₽</b></li>
+            <li><span>PRP + 1 пробирка</span><b>6 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p7"><h3>Липолитики<span class="lead2">Коррекция локальных жировых отложений на лице и теле.</span></h3><span class="from">от 5 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p7"><ul class="rows">
+            <li><span>Slim Lift — реконструкционный коктейль для лица, 6 мл</span><b>8 000 ₽</b></li>
+            <li><span>Magistral, 5 мл</span><b>5 000 ₽</b></li>
+            <li><span>Sculpt Veronica — липолитик для тела, 5 мл</span><b>7 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p8"><h3>Лечение выпадения волос<span class="lead2">Инъекционные протоколы для укрепления и роста волос.</span></h3><span class="from">от 6 000 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p8"><ul class="rows">
+            <li><span>MD Complex Hair, 2 мл</span><b>7 000 ₽</b></li>
+            <li><span>Curasen, 2 мл</span><b>14 000 ₽</b></li>
+            <li><span>Skymas Anagen, 2 мл</span><b>6 000 ₽</b></li>
+        </ul></div>
+      </div>
+      <div class="svc">
+        <button aria-expanded="false" aria-controls="p9"><h3>Чистки, пилинги и уход<span class="lead2">Очищение, обновление и выравнивание тона кожи.</span></h3><span class="from">от 400 ₽</span><span class="plus" aria-hidden="true"></span></button>
+        <div class="body" id="p9"><ul class="rows">
+            <li><span>Ультразвуковая чистка</span><b>1 900 ₽</b></li>
+            <li><span>Глубокая чистка с холодным гидрированием</span><b>3 000 ₽</b></li>
+            <li><span>Глубокая чистка на кислотах</span><b>3 500 ₽</b></li>
+            <li><span>Пилинг миндальный Mediderma</span><b>2 800 ₽</b></li>
+            <li><span>Пилинг азелаиновый Mediderma</span><b>2 700 ₽</b></li>
+            <li><span>Кератолитический пилинг 45,5% G-Derm</span><b>2 900 ₽</b></li>
+            <li><span>M.A.D Acne Peel 30%</span><b>3 200 ₽</b></li>
+            <li><span>M.A.D Peptide Peel 32%</span><b>3 500 ₽</b></li>
+            <li><span>Mediderma Lifter Peel</span><b>2 400 ₽</b></li>
+            <li><span>Жёлтый пилинг Retinol 3% Mediderma</span><b>3 800 ₽</b></li>
+            <li><span>Нанопилинг PRX-T33 45%</span><b>3 500 ₽</b></li>
+            <li><span>BioRePeel C3 30%, 2 мл</span><b>4 000 ₽</b></li>
+            <li><span>Apple Peel, 2 мл</span><b>4 000 ₽</b></li>
+            <li><span>Peach Peel, 2 мл</span><b>4 000 ₽</b></li>
+            <li><span>Пилинг Джесснера Mediderma 70% (8 слоёв)</span><b>6 000 ₽</b></li>
+            <li><span>Must Peel pH Formula Retinol «жёлтый пилинг»</span><b>4 000 ₽</b></li>
+            <li><span>Нанопилинг Mediderma Valencia Peel 40%</span><b>4 000 ₽</b></li>
+            <li><span>Mediderma Orange Peel 15%</span><b>4 000 ₽</b></li>
+            <li><span>Пилинг «Невесты» V45 (2 пилинга 20% и 30%)</span><b>4 000 ₽</b></li>
+            <li><span>pH Formula — комплекс Age</span><b>6 000 ₽</b></li>
+            <li><span>pH Formula — комплекс Acne</span><b>5 000 ₽</b></li>
+            <li><span>pH Formula — комплекс Mela</span><b>6 000 ₽</b></li>
+            <li><span>Безынъекционная биоревитализация, 1 мл</span><b>4 000 ₽</b></li>
+            <li><span>Удаление образований (папилломы), за 1 шт.</span><b>400 ₽</b></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="shop" data-fade>
+      <strong>Космецевтика для домашнего ухода</strong><p>Профессиональный домашний уход по самым приятным ценам для пациентов Beauty Bluess. В наличии: M.A.D, Rejuran, Phyris, Mybiogen, Evoskin.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team" aria-labelledby="team-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2 id="team-h" class="h2" data-split>Врачи и косметологи</h2>
+        <p class="sub" data-fade>К каждому специалисту можно записаться напрямую.</p>
+      </div>
+    </div>
+    <div class="team-grid">
+      <article class="doc">
+        <a class="ph" href="https://dikidi.net/ru/profile/beauty_bluess_583429/master/1336417" target="_blank" rel="noopener" aria-label="Записаться: Дарья Лапай">
+          <img src="assets/img/DARYA2-s.webp" width="480" height="640" loading="lazy" alt="Дарья Лапай" style="--y:-14%;">
+          <span class="book glass"><span class="lbl">Записаться<span class="nm"> к Дарье</span></span><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span>
+        </a>
+        <h3>Дарья Лапай</h3>
+        <p class="role">Косметолог-эстетист, директор</p>
+        <ul><li>Сибирский межрегиональный учебно-методический центр «Косметология», 2013</li><li>Медицинская сестра, ТБМК, 2014</li><li>Профпереподготовка «Косметология» на базе РУДН, 2015</li><li class="sig">Авторская программа «Лечение акне»</li></ul>
+      </article>
+      <article class="doc">
+        <a class="ph" href="https://dikidi.net/ru/profile/beauty_bluess_583429/master/1336429" target="_blank" rel="noopener" aria-label="Записаться: Ирина Вирясова">
+          <img src="assets/img/IMG_8650-s.webp" width="480" height="640" loading="lazy" alt="Ирина Вирясова">
+          <span class="book glass"><span class="lbl">Записаться<span class="nm"> к Ирине</span></span><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span>
+        </a>
+        <h3>Ирина Вирясова</h3>
+        <p class="role">Врач дерматокосметолог, ведущий косметолог</p>
+        <ul><li>Высшее образование СибГМУ, лечебный факультет</li><li>Интернатура по дерматовенерологии, СибГМУ</li><li>Переподготовка: врач-косметолог, СибГМУ</li><li class="sig">Авторская техника «Глобальное омоложение»</li></ul>
+      </article>
+      <article class="doc">
+        <a class="ph" href="https://dikidi.net/ru/profile/beauty_bluess_583429/master/4506108" target="_blank" rel="noopener" aria-label="Записаться: Кирилл Вирясов">
+          <img src="assets/img/IMG_8649-s.webp" width="480" height="640" loading="lazy" alt="Кирилл Вирясов">
+          <span class="book glass"><span class="lbl">Записаться<span class="nm"> к Кириллу</span></span><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span>
+        </a>
+        <h3>Кирилл Вирясов</h3>
+        <p class="role">Врач гинеколог-хирург, косметолог-инъекционист</p>
+        <ul><li>Высшее медицинское образование</li><li>Врач гинеколог-хирург</li><li>Направление — инъекционная косметология</li><li class="sig">Косметолог-инъекционист</li></ul>
+      </article>
+      <article class="doc">
+        <a class="ph" href="https://dikidi.net/ru/profile/beauty_bluess_583429/master/1336437" target="_blank" rel="noopener" aria-label="Записаться: Алина Чеботарь">
+          <img src="assets/img/IMG_8540-s.webp" width="480" height="640" loading="lazy" alt="Алина Чеботарь">
+          <span class="book glass"><span class="lbl">Записаться<span class="nm"> к Алине</span></span><span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span>
+        </a>
+        <h3>Алина Чеботарь</h3>
+        <p class="role">Врач дерматокосметолог</p>
+        <ul><li>Высшее образование СибГМУ, лечебный факультет</li><li>Ординатура по дерматовенерологии, СибГМУ</li><li>Переподготовка: врач-косметолог, СибГМУ</li><li class="sig">Авторская техника «Premium Lips» — увеличение губ</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="works" class="works" aria-labelledby="works-h">
+  <div class="wrap">
+    <div class="head">
+      <div><h2 id="works-h" class="h2" data-split>Результаты пациентов</h2><p class="sub" data-fade>Листайте карусель. Наведите курсор или нажмите на фото, чтобы сравнить «до» и «после».</p></div>
+      <div class="ctrl" data-fade><span class="cnt" aria-live="polite">1 / 10</span>
+        <button class="glass prev" aria-label="Предыдущий результат"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="glass next" aria-label="Следующий результат"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="car" tabindex="0" aria-label="Карусель результатов «до и после»">
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Лифтинг Volnewmer, сразу после процедуры">
+        <img class="b4" src="assets/ba/IMG_7091-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_7091-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Лифтинг Volnewmer</b><span>сразу после процедуры</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Увеличение губ, контурная пластика">
+        <img class="b4" src="assets/ba/IMG_9033-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_9033-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Увеличение губ</b><span>контурная пластика</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Малярные мешки, липолитик Slim Lift">
+        <img class="b4" src="assets/ba/IMG_1814-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_1814-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Малярные мешки</b><span>липолитик Slim Lift</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Коллагеностимуляция, Agent Col">
+        <img class="b4" src="assets/ba/IMG_5712-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_5712-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Коллагеностимуляция</b><span>Agent Col</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Лифтинг Volnewmer, сразу после процедуры">
+        <img class="b4" src="assets/ba/IMG_4632-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_4632-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Лифтинг Volnewmer</b><span>сразу после процедуры</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Увеличение губ, контурная пластика">
+        <img class="b4" src="assets/ba/IMG_1662-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_1662-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Увеличение губ</b><span>контурная пластика</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Овал лица, липолитик Slim Lift">
+        <img class="b4" src="assets/ba/IMG_7516-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_7516-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Овал лица</b><span>липолитик Slim Lift</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Зона шеи, коллагеностимуляция">
+        <img class="b4" src="assets/ba/IMG_9813-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_9813-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Зона шеи</b><span>коллагеностимуляция</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Лифтинг Volnewmer, сразу после процедуры">
+        <img class="b4" src="assets/ba/IMG_4004-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_4004-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Лифтинг Volnewmer</b><span>сразу после процедуры</span></figcaption>
+    </figure>
+    <figure class="bac">
+      <div class="bimg" role="img" aria-label="До и после: Овал лица, липолитик Slim Lift">
+        <img class="b4" src="assets/ba/IMG_2493-before.webp" alt="" loading="lazy" draggable="false"><img class="af" src="assets/ba/IMG_2493-after.webp" alt="" loading="lazy" draggable="false">
+        <span class="sweep" aria-hidden="true"></span><span class="knob glass" aria-hidden="true">↔</span>
+        <span class="tg l glass">До</span><span class="tg r glass">После</span>
+      </div>
+      <figcaption><b>Овал лица</b><span>липолитик Slim Lift</span></figcaption>
+    </figure>
+  </div>
+  <div class="wrap"><div class="bar" aria-hidden="true"><i></i></div><p class="note">Результат индивидуален и зависит от исходного состояния кожи.</p></div>
+</section>
+
+<section class="final dark" aria-labelledby="final-h">
+  <div class="wrap">
+    <h2 id="final-h" class="big" data-split>Начните с&nbsp;консультации. <span class="gold">Остальное&nbsp;— по&nbsp;плану.</span></h2>
+    <div class="row">
+      <p data-fade>Врач осмотрит кожу, ответит на вопросы и предложит план с понятной стоимостью.</p>
+      <div class="actions" data-fade>
+        <a class="btn btn-main" href="https://dikidi.net/583429" target="_blank" rel="noopener">Выбрать время</a>
+        <a class="btn btn-ghost" href="tel:+79138890939">+7 (913) 889-09-39</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts" aria-labelledby="contacts-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contacts-h" class="h2" data-split>Как нас найти</h2>
+      <dl data-fade>
+        <dt>Адрес</dt><dd>Томск, проспект Фрунзе, 96А, кабинет&nbsp;5</dd>
+        <dt>Телефон</dt><dd><a href="tel:+79138890939">+7 (913) 889-09-39</a></dd>
+        <dt>Instagram*</dt><dd><a href="https://www.instagram.com/beauty_bluess/" target="_blank" rel="noopener">@beauty_bluess</a></dd>
+      </dl>
+      <div class="actions" data-fade>
+        <a class="btn btn-main" href="https://dikidi.net/583429" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn btn-ghost" href="https://yandex.ru/maps/?text=%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A4%D1%80%D1%83%D0%BD%D0%B7%D0%B5%2C%2096%D0%90" target="_blank" rel="noopener">Построить маршрут</a>
+      </div>
+    </div>
+    <div class="map" data-fade>
+      <a class="map-img" href="https://yandex.ru/maps/?text=%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A4%D1%80%D1%83%D0%BD%D0%B7%D0%B5%2C%2096%D0%90" target="_blank" rel="noopener" aria-label="Открыть адрес в Яндекс.Картах"><img src="assets/img/map.webp" width="1274" height="774" loading="lazy" alt="Карта: Томск, проспект Фрунзе, 96А"></a>
+      <div class="card glass"><div><b>Проспект Фрунзе, 96А</b><span>Томск, кабинет 5</span></div><a href="https://yandex.ru/maps/?text=%D0%A2%D0%BE%D0%BC%D1%81%D0%BA%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A4%D1%80%D1%83%D0%BD%D0%B7%D0%B5%2C%2096%D0%90" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <span class="mark">BEAUTY BLUESS</span>
+      <p style="margin-top:12px">Кабинет врачебной косметологии<br>Томск, проспект Фрунзе, 96А, кабинет 5<br><a href="tel:+79138890939" style="text-decoration:none">+7 (913) 889-09-39</a><br><a href="https://www.instagram.com/beauty_bluess/" target="_blank" rel="noopener" style="text-decoration:none">Instagram*: @beauty_bluess</a></p>
+      <p style="margin-top:8px">* Instagram принадлежит компании Meta, признанной экстремистской и запрещённой в РФ.</p>
+    </div>
+    <p class="disc">Имеются противопоказания. Необходима консультация специалиста.</p>
+  </div>
+</footer>
+</div></div>
+
+<div class="mcta">
+  <a class="btn btn-ghost" href="tel:+79138890939">Позвонить</a>
+  <a class="btn btn-main" href="https://dikidi.net/583429" target="_blank" rel="noopener">Записаться</a>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="liquid" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="n"/><feGaussianBlur in="n" stdDeviation="2" result="nb"/><feDisplacementMap in="SourceGraphic" in2="nb" scale="38" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/ScrollSmoother.min.js"></script>
+<script src="js/SplitText.min.js"></script>
+<script src="js/start.js"></script>
+</body>
+</html>
