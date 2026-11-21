@@ -154,7 +154,7 @@ void main(){
       const hr = hero.getBoundingClientRect(); const H = innerHeight, asp = innerWidth / H, sh = -hr.top / H;
       a = Math.max(0, Math.min(1, (hr.bottom / H - 0.15) / 0.5)) * (S.imgFade == null ? 1 : S.imgFade);
       if (innerWidth > 900 && asp > 1) { const h = 1.06, w = h * 0.75; R = [asp / 2 - w + 0.02, -0.53 + sh, w, h]; }
-      else { mode = 1; const h = Math.min(0.62, asp * 1.05), w = h * 0.75; R = [-w / 2, 0.5 - h - 0.06 + sh, w, h]; }
+      else { mode = 1; const h = Math.min(0.70, asp * 1.12 / 0.75), w = h * 0.75; R = [-w / 2, 0.5 - h - 0.06 + sh, w, h]; }
     }
     gl.uniform4f(u.imgR, R[0], R[1], R[2], R[3]); gl.uniform2f(u.imgA, a, mode);
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex);

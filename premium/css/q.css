@@ -99,9 +99,9 @@ html.no-gl .q-hfb,html.no-tex .q-hfb{display:block}
 @keyframes qdrip{to{top:100%}}
 .js .q-h1{visibility:hidden}
 @media (max-width:900px),(max-aspect-ratio:1/1){
-  .q-hero{align-items:flex-end;padding-top:calc(62svh + 30px);padding-bottom:110px}
+  .q-hero{align-items:flex-end;padding-top:calc(68svh + 30px);padding-bottom:110px}
   .q-htx{max-width:none}
-  .q-hfb{left:0;right:0;margin:0 auto;height:62svh;max-width:none;-webkit-mask-image:linear-gradient(transparent 0,#000 12%,#000 70%,transparent);mask-image:linear-gradient(transparent 0,#000 12%,#000 70%,transparent)}
+  .q-hfb{left:0;right:0;margin:0 auto;height:70svh;max-width:none;-webkit-mask-image:linear-gradient(transparent 0,#000 12%,#000 70%,transparent);mask-image:linear-gradient(transparent 0,#000 12%,#000 70%,transparent)}
   .q-scroll{display:none}
 }
 @media (max-width:640px){
