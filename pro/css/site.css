@@ -714,3 +714,12 @@ a.dph{display:block}
 .cover.img::before{display:none}
 .cover.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;transition:scale 1.4s var(--ease)}
 .acard:hover .cover.img img,.afeat:hover .cover.img img{scale:1.04}
+
+/* mobile hero: bigger arch photo, heading within the first screen */
+@media (max-width:640px){
+  .ahero .wrap{padding-top:80px;gap:52px}
+  .astage{width:min(84vw,37svh);margin-top:20px}
+  .ahero .hlogo{display:none}
+  .ahero .accent{margin-bottom:18px}
+  .ahero h1{font-size:clamp(2.1rem,9.6vw,2.6rem)}
+}
