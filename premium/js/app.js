@@ -116,10 +116,14 @@
         [tx, vs, dots].forEach((l) => l.forEach((el, k) => el.classList.toggle('on', k === i)));
         if (cnt) cnt.textContent = String(i + 1).padStart(2, '0'); };
       set(0); paint();
-      if (innerWidth > 900 && !reduce) {
-        st = ScrollTrigger.create({ trigger: sec, start: 'top top', end: () => '+=' + innerHeight * 0.75 * N, pin: true, refreshPriority: 10, invalidateOnRefresh: true, scrub: 0.8,
+      if (!reduce) {
+        st = ScrollTrigger.create({ trigger: sec, start: 'top top', end: () => '+=' + innerHeight * (mob() ? 0.6 : 0.75) * N, pin: true, anticipatePin: 1, refreshPriority: 10, invalidateOnRefresh: true, scrub: 0.8,
           onUpdate: (s) => { const f = s.progress * (N - 1); rot.d = -f * STEP; paint(); set(Math.round(f)); } });
-        dots.forEach((d, i) => d.addEventListener('click', () => { const y = st.start + (st.end - st.start) * i / (N - 1); smoother ? smoother.scrollTo(y, true) : scrollTo({ top: y, behavior: 'smooth' }); }));
+        const toStep = (i) => { i = Math.max(0, Math.min(N - 1, i)); const y = st.start + (st.end - st.start) * i / (N - 1); smoother ? smoother.scrollTo(y, true) : scrollTo({ top: y, behavior: 'smooth' }); };
+        dots.forEach((d, i) => d.addEventListener('click', () => toStep(i)));
+        if (mob()) { let sx = null; const v = $('.q-scvis', sec);
+          v.addEventListener('pointerdown', (e) => { sx = e.clientX; });
+          v.addEventListener('pointerup', (e) => { if (sx == null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) toStep(cur + (dx < 0 ? 1 : -1)); }); }
       } else {
         const go = (i) => { i = Math.max(0, Math.min(N - 1, i)); set(i); gsap.to(rot, { d: -i * STEP, duration: reduce ? 0 : 1, ease: 'power3.inOut', onUpdate: paint }); };
         dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
@@ -270,9 +274,10 @@
   const hs = $('.q-hscroll');
   if (hs) {
     const prog = $('.q-dprog');
-    if (innerWidth > 900 && !reduce) {
-      const dist = () => Math.max(0, hs.scrollWidth - innerWidth);
-      const tw = gsap.to(hs, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.q-docs', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, refreshPriority: 5, invalidateOnRefresh: true, anticipatePin: 1,
+    if (!reduce) {
+      const M = mob(); const tgt = M ? $('.q-dtrack') : hs; if (M) root.classList.add('m-pin');
+      const dist = () => Math.max(0, tgt.scrollWidth - innerWidth);
+      const tw = gsap.to(tgt, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: M ? tgt : '.q-docs', start: M ? 'top 64px' : 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, refreshPriority: 5, invalidateOnRefresh: true, anticipatePin: 1,
         onUpdate: (s) => prog && prog.style.setProperty('--pr', s.progress.toFixed(3)) } });
       $$('.q-pan').forEach((p) => {
         gsap.from(p.querySelector('.q-pimg img'), { scale: 1.25, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left right', end: 'center center', scrub: true } });
@@ -309,12 +314,8 @@
   $$('.x-card, .x-art, .x-doc, .x-grp, .x-pr, .x-drow').forEach((el) => { if (!reduce) gsap.from(el, { y: 50, opacity: 0, duration: 1.2, scrollTrigger: { trigger: el, start: 'top 90%' } }); });
   /* ---------- телефон: появление блоков и оживление карточек врачей ---------- */
   if (mob() && !reduce) {
-    ScrollTrigger.batch('.q-sub, .x-headrow .q-ghost, .q-scvis, .q-sctx, .q-scnav, .q-dtrack', { start: 'top 90%', once: true,
+    ScrollTrigger.batch('.q-sub, .x-headrow .q-ghost, .q-scvis, .q-sctx, .q-scnav', { start: 'top 90%', once: true,
       onEnter: (els) => gsap.fromTo(els, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, stagger: 0.1, ease: 'expo.out', clearProps: 'transform,opacity' }) });
-    const trk = $('.q-dtrack');
-    if (trk && 'IntersectionObserver' in window) { root.classList.add('m-anim');
-      const io = new IntersectionObserver((en) => en.forEach((e) => e.target.classList.toggle('in', e.isIntersecting)), { root: trk, threshold: 0.6 });
-      $$('.q-pan', trk).forEach((p) => io.observe(p)); }
   }
   ScrollTrigger.sort();
   addEventListener('load', () => ScrollTrigger.refresh());
