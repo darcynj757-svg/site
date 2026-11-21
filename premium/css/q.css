@@ -718,3 +718,16 @@ html:not(.on-dark) .q-bglogo .lf{fill:var(--gold)}
   .q-scnav .q-scdots{grid-column:2;grid-row:1}
 }
 .q-scv .q-iph em{font-size:clamp(1.3rem,1.8vw,1.9rem);max-width:84%;text-align:center}
+
+/* ---------- телефон: отступ ленты врачей, компактные «Направления», оживление карточек ---------- */
+@media (max-width:900px){
+  .q-dtrack{scroll-padding-inline:20px}
+  .q-scvis{--h:min(38vh,330px)}
+  .m-anim .q-pan .q-pimg img{scale:1.12;transition:scale 1.4s var(--ease)}
+  .m-anim .q-pan .q-ptx>*{opacity:.25;translate:0 18px;transition:opacity .8s,translate .9s var(--ease)}
+  .m-anim .q-pan.in .q-pimg img{scale:1}
+  .m-anim .q-pan.in .q-ptx>*{opacity:1;translate:none}
+  .m-anim .q-pan.in .q-ptx>*:nth-child(2){transition-delay:.06s}
+  .m-anim .q-pan.in .q-ptx>*:nth-child(3){transition-delay:.12s}
+  .m-anim .q-pan.in .q-ptx>*:nth-child(n+4){transition-delay:.18s}
+}

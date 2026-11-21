@@ -123,6 +123,8 @@
       } else {
         const go = (i) => { i = Math.max(0, Math.min(N - 1, i)); set(i); gsap.to(rot, { d: -i * STEP, duration: reduce ? 0 : 1, ease: 'power3.inOut', onUpdate: paint }); };
         dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+        if (!reduce) ScrollTrigger.create({ trigger: $('.q-scvis', sec), start: 'top 70%', once: true, onEnter: () => { if (cur !== 0) return;
+          gsap.timeline().to(rot, { d: -12, duration: 0.7, ease: 'power2.out', onUpdate: paint }).to(rot, { d: 0, duration: 1.1, ease: 'elastic.out(1,0.5)', onUpdate: paint }); } });
         let x0 = null; const vis = $('.q-scvis', sec);
         vis.addEventListener('pointerdown', (e) => { x0 = e.clientX; });
         vis.addEventListener('pointerup', (e) => { if (x0 == null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); });
@@ -171,13 +173,13 @@
   if (!intro || reduce) { showAll(); heroIn(); }
   else {
     if (smoother) smoother.paused(true); else document.body.style.overflow = 'hidden';
-    const paths = $$('.q-ilogo .lm path'); const D = seen ? 0.9 : 2.4;
+    const paths = $$('.q-ilogo .lm path'); const D = seen ? 0.9 : (mob() ? 1.4 : 2.4);
     const crit = $$('.q-cimg img, .q-b4').slice(0, 6); let done = 0; const need = crit.length + 1; const cnt = { v: 0 };
     const paint = () => { $('.q-icount b').textContent = Math.round(cnt.v); gsap.set('.q-iline i', { scaleX: cnt.v / 100 }); };
     const one = () => { done++; gsap.to(cnt, { v: Math.round(done / need * 100), duration: 0.6, ease: 'power2.out', overwrite: true, onUpdate: paint }); };
     crit.forEach((im) => { im.loading = 'eager'; });
     const loadP = Promise.race([Promise.all([...crit.map((im) => (im.complete ? (one(), Promise.resolve()) : new Promise((r) => { const f = () => { one(); r(); }; im.addEventListener('load', f, { once: true }); im.addEventListener('error', f, { once: true }); }))),
-      (document.fonts ? document.fonts.ready : Promise.resolve()).then(one)]), new Promise((r) => setTimeout(r, 5000))])
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(one)]), new Promise((r) => setTimeout(r, mob() ? 1500 : 5000))])
       .then(() => new Promise((r) => gsap.to(cnt, { v: 100, duration: 0.5, onUpdate: paint, onComplete: r })));
     const tl = gsap.timeline({ onComplete: () => { root.classList.add('intro-done'); intro.remove(); if (smoother) smoother.paused(false); else document.body.style.overflow = ''; } });
     paths.forEach((p, k) => tl.to(p, { strokeDashoffset: 0, duration: D * 0.45, ease: 'power1.inOut' }, (k / paths.length) * D * 0.7));
@@ -305,6 +307,15 @@
       onToggle: (s) => { if (!s.isActive) return; links.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + g.id)); } })); };
   spy($$('.x-toc a'), $$('.x-grp')); spy($$('.x-atoc a'), $$('.x-prose h2[id]'));
   $$('.x-card, .x-art, .x-doc, .x-grp, .x-pr, .x-drow').forEach((el) => { if (!reduce) gsap.from(el, { y: 50, opacity: 0, duration: 1.2, scrollTrigger: { trigger: el, start: 'top 90%' } }); });
+  /* ---------- телефон: появление блоков и оживление карточек врачей ---------- */
+  if (mob() && !reduce) {
+    ScrollTrigger.batch('.q-sub, .x-headrow .q-ghost, .q-scvis, .q-sctx, .q-scnav, .q-dtrack', { start: 'top 90%', once: true,
+      onEnter: (els) => gsap.fromTo(els, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, stagger: 0.1, ease: 'expo.out', clearProps: 'transform,opacity' }) });
+    const trk = $('.q-dtrack');
+    if (trk && 'IntersectionObserver' in window) { root.classList.add('m-anim');
+      const io = new IntersectionObserver((en) => en.forEach((e) => e.target.classList.toggle('in', e.isIntersecting)), { root: trk, threshold: 0.6 });
+      $$('.q-pan', trk).forEach((p) => io.observe(p)); }
+  }
   ScrollTrigger.sort();
   addEventListener('load', () => ScrollTrigger.refresh());
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
