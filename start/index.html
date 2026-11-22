@@ -331,6 +331,29 @@ footer .disc{font-family:var(--serif);font-size:1.25rem;color:var(--gold-soft);m
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .hero h1,.js [data-fade],.js .panel{visibility:visible}.mani .w{opacity:1}}
 @media (max-width:640px){.map .card{position:relative;left:auto;right:auto;bottom:auto;margin-top:12px;background:var(--espresso)}.map{padding:0;border-radius:22px}}
+
+/* ---------- Работы врачей: видео-карусель ---------- */
+.vworks{background:var(--espresso);color:var(--linen);overflow:hidden}
+.vworks .sub{color:var(--mist)}
+.vworks .head{margin-bottom:40px}
+.vw-ctrl{display:flex;align-items:center;gap:14px}
+.vw-cnt{font-variant-numeric:tabular-nums;font-size:.875rem;color:var(--mist);min-width:4.5em;text-align:right}
+.vw-ctrl button{width:52px;height:52px;border-radius:16px;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;transition:background .3s,opacity .3s}
+.vw-ctrl button:hover{background:rgba(205,180,138,.35)}
+.vw-ctrl button:disabled{opacity:.35;cursor:default}
+.vw-car{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;
+  padding:6px max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad))) 30px;scroll-padding-inline:max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)))}
+.vw-car::-webkit-scrollbar{display:none}
+.vw-item{position:relative;margin:0;flex:none;width:clamp(210px,19vw,270px);aspect-ratio:9/16;border-radius:var(--r-img,26px);overflow:hidden;background:#1f1915;scroll-snap-align:start;cursor:pointer;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.vw-item video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vw-snd{position:absolute;right:12px;bottom:12px;width:42px;height:42px;border-radius:50%;border:0;display:grid;place-items:center;color:#fff;background:rgba(43,35,31,.6);cursor:pointer;transition:background .3s}
+.vw-snd .i-on{display:none}
+.vw-item.snd .vw-snd{background:var(--gold)}
+.vw-item.snd .vw-snd .i-on{display:inline}
+.vw-item.snd .vw-snd .i-off{display:none}
+.vw-bar{position:relative;height:1px;background:rgba(205,180,138,.2);margin-top:8px}
+.vw-bar i{position:absolute;left:0;top:0;bottom:0;width:100%;background:var(--gold-soft);transform-origin:left;transform:scaleX(var(--prog,.1))}
+@media (max-width:640px){.vw-item{width:62vw}.vw-ctrl button{width:46px;height:46px;border-radius:14px}}
 </style>
 <script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.hero h1,.panel,[data-fade]').forEach(function(e){e.style.visibility='visible'})},2500)</script>
 </head>
@@ -660,6 +683,14 @@ footer .disc{font-family:var(--serif);font-size:1.25rem;color:var(--gold-soft);m
   </div>
   <div class="wrap"><div class="bar" aria-hidden="true"><i></i></div><p class="note">Результат индивидуален и зависит от исходного состояния кожи.</p></div>
 </section>
+<section id="video" class="vworks" data-vworks aria-labelledby="vw-h">
+  <div class="wrap">
+    <div class="head"><div><h2 id="vw-h" class="h2" data-split>Работы врачей</h2><p class="sub" data-fade>Короткие видео с процедур в нашем кабинете. Листайте вправо, нажмите на видео, чтобы включить звук.</p></div><div class="vw-ctrl" data-fade><span class="vw-cnt" aria-live="polite">1 / 8</span><button type="button" class="glass vw-prev" aria-label="Предыдущее видео"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="glass vw-next" aria-label="Следующее видео"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+  </div>
+  <div class="vw-car" tabindex="0" aria-label="Карусель видео с процедур"><figure class="vw-item"><video src="assets/video/work-01.mp4" poster="assets/video/work-01.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 1 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-02.mp4" poster="assets/video/work-02.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 2 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-03.mp4" poster="assets/video/work-03.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 3 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-04.mp4" poster="assets/video/work-04.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 4 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-05.mp4" poster="assets/video/work-05.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 5 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-06.mp4" poster="assets/video/work-06.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 6 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-07.mp4" poster="assets/video/work-07.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 7 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure><figure class="vw-item"><video src="assets/video/work-08.mp4" poster="assets/video/work-08.jpg" muted loop playsinline preload="none" aria-label="Видео с процедуры 8 из 8"></video><button type="button" class="vw-snd" aria-label="Включить звук" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="i-off" d="M22 9l-6 6M16 9l6 6"/><path class="i-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button></figure></div>
+  <div class="wrap"><div class="vw-bar" aria-hidden="true"><i></i></div></div>
+</section>
+
 
 <section class="final dark" aria-labelledby="final-h">
   <div class="wrap">
@@ -719,5 +750,6 @@ footer .disc{font-family:var(--serif);font-size:1.25rem;color:var(--gold-soft);m
 <script src="js/ScrollSmoother.min.js"></script>
 <script src="js/SplitText.min.js"></script>
 <script src="js/start.js"></script>
+<script src="js/vworks.js"></script>
 </body>
 </html>
