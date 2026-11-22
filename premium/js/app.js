@@ -116,8 +116,9 @@
         [tx, vs, dots].forEach((l) => l.forEach((el, k) => el.classList.toggle('on', k === i)));
         if (cnt) cnt.textContent = String(i + 1).padStart(2, '0'); };
       set(0); paint();
+      if (mob()) ScrollTrigger.create({ trigger: sec, start: 'top bottom+=900', once: true, onEnter: () => $$('.q-scv img', sec).forEach((im) => { im.loading = 'eager'; if (im.decode) im.decode().catch(() => {}); }) });
       if (!reduce) {
-        st = ScrollTrigger.create({ trigger: sec, start: 'top top', end: () => '+=' + innerHeight * (mob() ? 0.6 : 0.75) * N, pin: true, anticipatePin: 1, refreshPriority: 10, invalidateOnRefresh: true, scrub: 0.8,
+        st = ScrollTrigger.create({ trigger: sec, start: 'top top', end: () => '+=' + innerHeight * (mob() ? 0.6 : 0.75) * N, pin: true, anticipatePin: 1, refreshPriority: 10, invalidateOnRefresh: true, scrub: mob() ? 0.25 : 0.8, snap: mob() ? { snapTo: 1 / (N - 1), duration: { min: 0.15, max: 0.4 }, delay: 0.08, ease: 'power2.out' } : false,
           onUpdate: (s) => { const f = s.progress * (N - 1); rot.d = -f * STEP; paint(); set(Math.round(f)); } });
         const toStep = (i) => { i = Math.max(0, Math.min(N - 1, i)); const y = st.start + (st.end - st.start) * i / (N - 1); smoother ? smoother.scrollTo(y, true) : scrollTo({ top: y, behavior: 'smooth' }); };
         dots.forEach((d, i) => d.addEventListener('click', () => toStep(i)));

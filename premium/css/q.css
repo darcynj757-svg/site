@@ -777,3 +777,14 @@ html:not(.on-dark) .q-bglogo .lf{fill:var(--gold)}
   .q-dlg{background:rgba(239,233,226,.98)}
   .q-tg,.q-sctag,.q-scnm{background:rgba(239,233,226,.94)}
 }
+
+/* m-carousel: телефон — фото врачей по центру карточки, лёгкая карусель направлений */
+@media (max-width:900px){
+  .m-pin .q-pimg{justify-self:center}
+  .q-scring{will-change:transform}
+  .q-scv .q-scarch{filter:none!important;transition:none}
+  .q-scv .q-scarch>img{transition:opacity .35s ease;scale:1}
+  .q-scv:not(.on) .q-scarch>img{opacity:.5}
+  .q-sct{transition:opacity .3s,visibility .3s,transform .45s var(--ease)}
+  .q-sct.on{transition-delay:0s}
+}
