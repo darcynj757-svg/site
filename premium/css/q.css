@@ -748,16 +748,32 @@ html:not(.on-dark) .q-bglogo .lf{fill:var(--gold)}
   .m-pin .q-hscroll{will-change:auto}
   .m-pin .q-dtrack{overflow:visible;width:max-content;scroll-snap-type:none;padding-bottom:0}
   .m-pin .q-pan{gap:16px;align-content:start}
-  .m-pin .q-pimg{width:auto;height:clamp(160px,calc(100svh - var(--cardtx,600px)),420px);aspect-ratio:3/4.3}
+  .m-pin .q-pimg{width:auto;height:var(--ph,240px);aspect-ratio:3/4.3}
+  .m-pin .q-dtrack.no-ul .q-ptx ul{display:none}
   .m-pin .q-ptx h3{font-size:2rem;margin-top:8px}
   .m-pin .q-prl{margin-top:6px}
   .m-pin .q-ptx .q-dsig{margin-top:8px;font-size:1.1rem}
   .m-pin .q-ptx ul{margin-top:12px;gap:5px}
   .m-pin .q-ptx li{font-size:.8125rem}
-  .m-pin .q-ptx .q-acts{margin-top:16px;gap:8px}
-  .m-pin .q-ptx .q-acts>a{padding-left:18px;padding-right:18px;white-space:nowrap}
+  .m-pin .q-ptx .q-acts{margin-top:14px;gap:6px}
+  .m-pin .q-ptx .q-acts>a{height:46px;padding:0 14px;font-size:.875rem;white-space:nowrap}
 }
-@media (max-width:900px) and (max-height:860px){
-  .m-pin{--cardtx:520px}
-  .m-pin .q-ptx ul{display:none}
+
+
+/* ---------- телефон: резкое фото команды во всю ширину (обычная картинка, не в шейдере) ---------- */
+@media (max-width:900px),(max-aspect-ratio:1/1){
+  html.m-photo .q-hero{position:relative;padding-top:calc(min(100vw,75svh) * 4 / 3 - 90px)}
+  html.m-photo .q-hfb{display:block;position:absolute;top:0;left:0;right:0;margin:0 auto;width:min(100vw,75svh);height:auto;max-width:none;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;
+    -webkit-mask-image:linear-gradient(#000 0,#000 62%,transparent);mask-image:linear-gradient(#000 0,#000 62%,transparent);opacity:0;transition:opacity 1.6s ease}
+  html.m-photo.intro-done .q-hfb{opacity:1}
+}
+/* ---------- сенсорные экраны: без размытия под стеклом (на iPhone оно пересчитывается каждый кадр) ---------- */
+@media (hover:none) and (pointer:coarse){
+  *,*::before,*::after,::backdrop{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .q-top{background:rgba(239,233,226,.94)}
+  html.on-dark .q-top{background:rgba(43,35,31,.92)}
+  .q-mcta{background:rgba(43,35,31,.92)}
+  .q-menu{background:rgba(239,233,226,.98)}
+  .q-dlg{background:rgba(239,233,226,.98)}
+  .q-tg,.q-sctag,.q-scnm{background:rgba(239,233,226,.94)}
 }

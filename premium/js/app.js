@@ -140,7 +140,7 @@
     const chk = () => { const mid = innerHeight * 0.55; let d = null;
       for (const s of secs) { const r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom >= mid) { d = '1'; break; } }
       if (d !== null && d !== lastD) { lastD = d; P.darkT = +d; root.classList.toggle('on-dark', d === '1'); } };
-    gsap.ticker.add(chk); chk(); }
+    if (smoother) gsap.ticker.add(chk); else addEventListener('scroll', chk, { passive: true }); chk(); }
   ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (s) => { P.scroll = s.progress * 3; gsap.set('.q-prog', { scaleX: s.progress }); const top = $('.q-top'); if (top && !document.body.classList.contains('menu-open')) top.classList.toggle('hid', s.direction === 1 && s.scroll() > 600); } });
 
   /* ---------- хореография капли по секциям ---------- */
@@ -215,7 +215,7 @@
 
   /* ---------- фоновый логотип рисуется по мере прокрутки страницы (плавно) ---------- */
   const bp = $$('.q-bglogo .lm path'), bgl = $('.q-bgl');
-  if (bp.length) { if (reduce) gsap.set(bp, { strokeDashoffset: 0 }); else {
+  if (bp.length) { if (reduce || mob()) gsap.set(bp, { strokeDashoffset: 0 }); else {
     /* общая длина — чтобы каждый штрих рисовался пропорционально своей длине, с перехлёстом: линия течёт без рывков */
     const lens = bp.map((p) => { try { return p.getTotalLength(); } catch (e) { return 1; } }); const total = lens.reduce((a, b) => a + b, 0) || 1;
     const bt = gsap.timeline({ paused: true }); let t = 0;
@@ -276,8 +276,16 @@
     const prog = $('.q-dprog');
     if (!reduce) {
       const M = mob(); const tgt = M ? $('.q-dtrack') : hs; if (M) root.classList.add('m-pin');
+      if (M) { const fit = () => {
+          const bar = $('.q-mcta'); const bh = bar && getComputedStyle(bar).display !== 'none' ? innerHeight - bar.getBoundingClientRect().top : 0;
+          const avail = innerHeight - 12 - bh - 16; const txt = () => Math.max(...$$('.q-ptx', tgt).map((t) => t.offsetHeight));
+          const cap = Math.min(520, $('.q-pan', tgt).clientWidth * 4.3 / 3);
+          tgt.classList.remove('no-ul'); tgt.style.setProperty('--ph', '0px'); let h = avail - txt() - 16;
+          if (h < 260) { tgt.classList.add('no-ul'); h = avail - txt() - 16; }
+          tgt.style.setProperty('--ph', Math.round(Math.max(150, Math.min(cap, h))) + 'px'); };
+        fit(); ScrollTrigger.addEventListener('refreshInit', fit); }
       const dist = () => Math.max(0, tgt.scrollWidth - innerWidth);
-      const tw = gsap.to(tgt, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: M ? tgt : '.q-docs', start: M ? 'top 64px' : 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, refreshPriority: 5, invalidateOnRefresh: true, anticipatePin: 1,
+      const tw = gsap.to(tgt, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: M ? tgt : '.q-docs', start: M ? 'top 12px' : 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.8, refreshPriority: 5, invalidateOnRefresh: true, anticipatePin: 1,
         onUpdate: (s) => prog && prog.style.setProperty('--pr', s.progress.toFixed(3)) } });
       $$('.q-pan').forEach((p) => {
         gsap.from(p.querySelector('.q-pimg img'), { scale: 1.25, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tw, start: 'left right', end: 'center center', scrub: true } });

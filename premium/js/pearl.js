@@ -116,11 +116,12 @@ void main(){
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
   const src = cv.dataset.img;
-  if (src) { const im = new Image(); im.onload = () => { try { gl.bindTexture(gl.TEXTURE_2D, tex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im); texOK = true; } catch (e) { document.documentElement.classList.add('no-tex'); } };
+  if (mobile) document.documentElement.classList.add('m-photo');
+  if (src && !mobile) { const im = new Image(); im.onload = () => { try { gl.bindTexture(gl.TEXTURE_2D, tex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im); texOK = true; } catch (e) { document.documentElement.classList.add('no-tex'); } };
     im.onerror = () => document.documentElement.classList.add('no-tex'); im.src = src; }
   gl.uniform1i(u.img, 0);
   const S = window.PEARL = { fo: { x: 0, y: 0 }, fv: { x: 0, y: 0 }, follow: 0, img: null, dark: 0, darkT: 0, scroll: 0, drop: { x: 0, y: 0, r: 0, v: 0 }, mx: 0, my: 0, tmx: 0, tmy: 0, ma: 0, mat: 0 };
-  const scale = () => Math.min(window.devicePixelRatio || 1, 2) * (mobile ? 0.55 : innerWidth > 1700 ? 0.55 : 0.62);
+  const scale = () => Math.min(window.devicePixelRatio || 1, 2) * (mobile ? 0.4 : innerWidth > 1700 ? 0.55 : 0.62);
   let k = scale();
   const size = () => { k = scale(); cv.width = Math.round(innerWidth * k); cv.height = Math.round(innerHeight * k); gl.viewport(0, 0, cv.width, cv.height); };
   size(); addEventListener('resize', size);
@@ -147,7 +148,7 @@ void main(){
     const ax = (tx - S.fo.x) * 26 - S.fv.x * 7.5, ay = (ty - S.fo.y) * 26 - S.fv.y * 7.5;
     S.fv.x += ax * dt; S.fv.y += ay * dt; S.fo.x += S.fv.x * dt; S.fo.y += S.fv.y * dt;
     gl.uniform2f(u.vel, S.fv.x * 0.12, S.fv.y * 0.12);
-    S.cr = (S.cr == null ? 0.043 : S.cr) + ((document.querySelector('.q-cur.label') ? 0 : 0.043) - (S.cr == null ? 0.043 : S.cr)) * Math.min(1, dt * 10); const CR = S.cr; gl.uniform4f(u.drop, S.drop.x + S.fo.x, S.drop.y + S.fo.y, S.drop.r + (CR - S.drop.r) * S.follow, S.drop.v + (1 - S.drop.v) * S.follow);
+    S.cr = (S.cr == null ? 0.043 : S.cr) + ((!mobile && document.querySelector('.q-cur.label') ? 0 : 0.043) - (S.cr == null ? 0.043 : S.cr)) * Math.min(1, dt * 10); const CR = S.cr; gl.uniform4f(u.drop, S.drop.x + S.fo.x, S.drop.y + S.fo.y, S.drop.r + (CR - S.drop.r) * S.follow, S.drop.v + (1 - S.drop.v) * S.follow);
     const hero = S.heroEl || (S.heroEl = document.querySelector('.q-hero'));
     let a = 0, mode = 0, R = [0, 0, 1, 1];
     if (hero && texOK) {
@@ -160,6 +161,6 @@ void main(){
     gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   };
-  const loop = (now) => { if (!run) return; if (now - last > (mobile ? 40 : 16)) { frame(now); last = now; } requestAnimationFrame(loop); };
+  const loop = (now) => { if (!run) return; if (now - last > (mobile ? 50 : 16)) { frame(now); last = now; } requestAnimationFrame(loop); };
   requestAnimationFrame(loop);
 })();
