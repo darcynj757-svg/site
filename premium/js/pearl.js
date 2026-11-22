@@ -72,9 +72,11 @@ void main(){
  vec3 c=vec3(uDrop.xy+vec2(sin(uT*.31),cos(uT*.23))*uDrop.z*.23*uDrop.w,0.);float r=uDrop.z;
  if(uDrop.w>.01 && r>.001 && length(p-c.xy)<r*1.35){
   vec3 ro=vec3(p,-2.);vec3 rd=normalize(vec3((p-c.xy)*.08,1.));
-  float t=0.;float hit=0.;vec3 pos;
-  for(int i=0;i<44;i++){pos=ro+rd*t;float d=sdf(pos,c,r);if(d<.0008){hit=1.;break;}t+=d*.9;if(t>4.)break;}
-  if(hit>.5){
+  float t=0.;float hit=0.;vec3 pos;float md=1e3;vec3 mp=ro;
+  for(int i=0;i<44;i++){pos=ro+rd*t;float d=sdf(pos,c,r);if(d<md){md=d;mp=pos;}if(d<.0008){hit=1.;break;}t+=d*.9;if(t>4.)break;}
+  float px=1.6/uRes.y;float cov=hit>.5?1.:1.-smoothstep(0.,px,md);
+  if(hit<.5)pos=mp;
+  if(cov>.001){
    vec2 e=vec2(.0015,0.);
    vec3 nr=normalize(vec3(sdf(pos+e.xyy,c,r)-sdf(pos-e.xyy,c,r),sdf(pos+e.yxy,c,r)-sdf(pos-e.yxy,c,r),sdf(pos+e.yyx,c,r)-sdf(pos-e.yyx,c,r)));
    float fr=pow(1.-max(dot(nr,-rd),0.),3.);
@@ -94,7 +96,7 @@ void main(){
    /* золотая каустика у основания */
    glass+=vec3(.69,.55,.34)*pow(max(-nr.y,0.),4.)*.18;
    float edge=smoothstep(0.,.002,0.0016);
-   col=mix(col,glass,uDrop.w*edge);
+   col=mix(col,glass,uDrop.w*edge*cov);
   }
   /* мягкая тень/каустика под каплей */
  }
@@ -121,7 +123,7 @@ void main(){
     im.onerror = () => document.documentElement.classList.add('no-tex'); im.src = src; }
   gl.uniform1i(u.img, 0);
   const S = window.PEARL = { fo: { x: 0, y: 0 }, fv: { x: 0, y: 0 }, follow: 0, img: null, dark: 0, darkT: 0, scroll: 0, drop: { x: 0, y: 0, r: 0, v: 0 }, mx: 0, my: 0, tmx: 0, tmy: 0, ma: 0, mat: 0 };
-  const scale = () => Math.min(window.devicePixelRatio || 1, 2) * (mobile ? 0.4 : innerWidth > 1700 ? 0.55 : 0.62);
+  const scale = () => Math.min(window.devicePixelRatio || 1, 2) * (mobile ? 0.5 : innerWidth > 1700 ? 0.55 : 0.62);
   let k = scale();
   const size = () => { k = scale(); cv.width = Math.round(innerWidth * k); cv.height = Math.round(innerHeight * k); gl.viewport(0, 0, cv.width, cv.height); };
   size(); addEventListener('resize', size);
