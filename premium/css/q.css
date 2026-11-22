@@ -788,3 +788,10 @@ html:not(.on-dark) .q-bglogo .lf{fill:var(--gold)}
   .q-sct{transition:opacity .3s,visibility .3s,transform .45s var(--ease)}
   .q-sct.on{transition-delay:0s}
 }
+
+/* телефон: блок статей — горизонтальная карусель (главная и «Читайте также»; страница «Статьи» остаётся списком) */
+@media (max-width:760px){
+  .q-arts4,.x-headrow + .x-arts{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(clamp(20px,4vw,56px) * -1);padding:0 clamp(20px,4vw,56px) 8px;scroll-padding-inline:clamp(20px,4vw,56px);scrollbar-width:none;overscroll-behavior-x:contain}
+  .q-arts4::-webkit-scrollbar,.x-headrow + .x-arts::-webkit-scrollbar{display:none}
+  .q-arts4>.x-art,.x-headrow + .x-arts>.x-art{flex:0 0 82%;scroll-snap-align:start}
+}

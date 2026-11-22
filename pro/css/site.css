@@ -723,3 +723,10 @@ a.dph{display:block}
   .ahero .accent{margin-bottom:18px}
   .ahero h1{font-size:clamp(2.1rem,9.6vw,2.6rem)}
 }
+
+/* телефон: блок статей — горизонтальная карусель (главная и «другие статьи»; страница «Статьи» остаётся списком) */
+@media (max-width:760px){
+  .acards:not(.afeat + .acards){display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(var(--pad) * -1);padding:0 var(--pad) 8px;scroll-padding-inline:var(--pad);scrollbar-width:none;overscroll-behavior-x:contain}
+  .acards:not(.afeat + .acards)::-webkit-scrollbar{display:none}
+  .acards:not(.afeat + .acards)>.acard{flex:0 0 82%;scroll-snap-align:start}
+}
